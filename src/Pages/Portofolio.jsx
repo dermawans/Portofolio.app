@@ -104,17 +104,45 @@ function a11yProps(index) {
 
 // techStacks tetap sama
 const techStacks = [
+  // API & Integration
+  { icon: "api.svg", language: "API" },
+  { icon: "iso8583.svg", language: "ISO 8583" },
+  { icon: "postman.svg", language: "Postman" },
+
+  // DevOps
+  { icon: "docker.svg", language: "Docker" },
+  { icon: "digitalocean.svg", language: "Digital Ocean" },
+  { icon: "vercel.svg", language: "Vercel" },
+  { icon: "git.svg", language: "Git" },
+
+  // Automation
+  { icon: "n8n.svg", language: "n8n" },
+
+  // Backend
+  { icon: "php.svg", language: "PHP" },
+  { icon: "laravel.svg", language: "Laravel" },
+  { icon: "codeigniter.svg", language: "CodeIgniter" },
+  { icon: "nodejs.svg", language: "Node JS" },
+
+  // Frontend
   { icon: "html.svg", language: "HTML" },
   { icon: "css.svg", language: "CSS" },
   { icon: "javascript.svg", language: "JavaScript" },
-  { icon: "tailwind.svg", language: "Tailwind CSS" },
   { icon: "reactjs.svg", language: "ReactJS" },
-  { icon: "vite.svg", language: "Vite" },
-  { icon: "nodejs.svg", language: "Node JS" },
   { icon: "bootstrap.svg", language: "Bootstrap" },
-  { icon: "firebase.svg", language: "Firebase" },
+  { icon: "tailwind.svg", language: "Tailwind CSS" },
   { icon: "MUI.svg", language: "Material UI" },
-  { icon: "vercel.svg", language: "Vercel" },
+
+  // Database
+  { icon: "mysql.svg", language: "MYSQL" },
+  { icon: "postgresql.svg", language: "PostgreSQL" },
+  { icon: "supabase.svg", language: "Supabase" },
+
+  // BaaS
+  { icon: "firebase.svg", language: "Firebase" },
+
+  // Tools
+  { icon: "vite.svg", language: "Vite" },
   { icon: "SweetAlert.svg", language: "SweetAlert2" },
 ];
 
