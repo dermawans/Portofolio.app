@@ -218,7 +218,6 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-        Passionate IT Professional Driving Innovation and Excellence | Leveraging Technology to Shape a Smarter Future. 
 I am passionate about IT and always strive to deliver the best solutions in every project I work on.
                   </p>
 
