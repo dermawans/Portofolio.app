@@ -143,10 +143,10 @@ const Home = () => {
         <title>Eki Zulfar Rachman — Frontend Web Developer</title>
         <meta name="description" content="Website resmi Eki Zulfar Rachman, Front-End Web Developer. Saya berfokus pada penciptaan pengalaman digital yang menarik dan selalu berupaya memberikan solusi terbaik dalam setiap proyek yang saya kerjakan." />
      <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://ekizr.com" />
+        <link rel="canonical" href="https://dermawansuprihatin.vercel.app" />
         <meta property="og:title" content="Eki Zulfar Rachman — Frontend Web Developer" />
      <meta property="og:description" content="Website resmi dan portofolio Eki Zulfar Rachman, Front-End Web Developer." />
-        <meta property="og:url" content="https://ekizr.com" />
+        <meta property="og:url" content="https://dermawansuprihatin.vercel.app" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{`
           {
@@ -154,7 +154,7 @@ const Home = () => {
             "@type": "Person",
             "name": "Eki Zulfar Rachman",
             "jobTitle": "Frontend Developer",
-            "url": "https://ekizr.com",
+            "url": "https://dermawansuprihatin.vercel.app",
             "sameAs": [
               "https://github.com/EkiZR",
               "https://www.linkedin.com/in/ekizr/",
