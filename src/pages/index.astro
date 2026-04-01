@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import SkillList from '../components/SkillList.astro';
+import Footer from '../components/Footer.astro';
+import { profile } from '../data/profile';
+import { getCollection } from 'astro:content';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const pageTitle = `${profile.name} — Portofolio`;
+const pageDescription = profile.about;
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <Header />
+  <main>
+    <Hero />
+    <Section id="about" title="Tentang" eyebrow="Profil">
+      <p class="max-w-prose text-lg leading-relaxed text-slate-400">
+        {profile.about}
+      </p>
+      <p class="mt-4 text-sm text-slate-500">
+        Lokasi: {profile.location}
+      </p>
+    </Section>
+    <Section id="projects" title="Proyek" eyebrow="Pekerjaan terpilih">
+      <div class="grid gap-6 sm:grid-cols-2">
+        {projects.map((project) => <ProjectCard project={project} />)}
+      </div>
+    </Section>
+    <Section id="skills" title="Keahlian" eyebrow="Teknologi & alat">
+      <SkillList />
+    </Section>
+    <Section id="contact" title="Kontak" eyebrow="Mari berkoneksi">
+      <p class="max-w-prose text-slate-400">
+        Untuk kolaborasi atau pertanyaan, silakan hubungi lewat email atau tautan
+        sosial di bawah.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a
+          href={profile.email}
+          class="inline-flex rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-surface transition hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+        >
+          Kirim email
+        </a>
+        <a
+          href={profile.social.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex rounded-lg border border-surface-border bg-surface-raised px-5 py-2.5 text-sm font-medium text-slate-200 transition hover:border-accent/50 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+        >
+          GitHub
+        </a>
+      </div>
+    </Section>
+  </main>
+  <Footer />
+</Layout>

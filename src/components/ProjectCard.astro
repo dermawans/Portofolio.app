@@ -1,0 +1,83 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { title, description, date, tags, repoUrl, demoUrl, image } =
+  project.data;
+const { Content } = await project.render();
+---
+
+<article
+  class="group flex flex-col rounded-xl border border-surface-border bg-surface-raised/50 p-6 transition hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-lg hover:shadow-cyan-950/40"
+>
+  {
+    image && (
+      <div class="mb-4 overflow-hidden rounded-lg border border-surface-border">
+        <img
+          src={image}
+          alt=""
+          class="h-40 w-full object-cover transition group-hover:scale-[1.02]"
+          loading="lazy"
+        />
+      </div>
+    )
+  }
+  <div class="flex flex-1 flex-col">
+    <time
+      class="text-xs text-slate-500"
+      datetime={date.toISOString().slice(0, 10)}
+    >
+      {
+        date.toLocaleDateString('id-ID', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })
+      }
+    </time>
+    <h3 class="mt-2 text-lg font-semibold text-white">{title}</h3>
+    <p class="mt-2 text-sm leading-relaxed text-slate-400">{description}</p>
+    <div class="mt-4 flex flex-wrap gap-2">
+      {
+        tags.map((tag) => (
+          <span class="rounded-md bg-surface px-2 py-0.5 text-xs text-accent">
+            {tag}
+          </span>
+        ))
+      }
+    </div>
+    <div class="mt-4 text-sm leading-relaxed text-slate-400 [&_p]:my-2">
+      <Content />
+    </div>
+    <div class="mt-6 flex flex-wrap gap-3">
+      {
+        demoUrl && (
+          <a
+            href={demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm font-medium text-accent underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-raised"
+          >
+            Demo
+          </a>
+        )
+      }
+      {
+        repoUrl && (
+          <a
+            href={repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm font-medium text-slate-300 underline-offset-4 hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-raised"
+          >
+            Kode sumber
+          </a>
+        )
+      }
+    </div>
+  </div>
+</article>

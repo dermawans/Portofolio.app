@@ -1,0 +1,15 @@
+---
+import { profile } from '../data/profile';
+---
+
+<ul class="flex flex-wrap gap-2" role="list">
+  {
+    profile.skills.map((skill) => (
+      <li>
+        <span class="inline-flex rounded-lg border border-surface-border bg-surface-raised px-3 py-1.5 text-sm text-slate-200">
+          {skill}
+        </span>
+      </li>
+    ))
+  }
+</ul>

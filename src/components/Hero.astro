@@ -1,0 +1,56 @@
+---
+import { profile } from '../data/profile';
+---
+
+<section
+  id="hero"
+  class="relative overflow-hidden border-b border-surface-border/60"
+>
+  <div
+    class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/10 blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute -bottom-32 -left-16 h-64 w-64 rounded-full bg-cyan-900/20 blur-3xl"
+    aria-hidden="true"
+  >
+  </div>
+  <div class="relative mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
+    <p
+      class="animate-fade-in mb-4 inline-block rounded-full border border-surface-border bg-surface-raised/80 px-3 py-1 text-xs font-medium uppercase tracking-widest text-accent opacity-0 [animation-delay:0ms]"
+      style="animation-fill-mode: forwards;"
+    >
+      Halo, saya {profile.name}
+    </p>
+    <h1
+      class="animate-fade-in max-w-2xl text-4xl font-bold tracking-tight text-white opacity-0 [animation-delay:80ms] sm:text-5xl"
+      style="animation-fill-mode: forwards;"
+    >
+      {profile.headline}
+    </h1>
+    <p
+      class="animate-fade-in mt-6 max-w-xl text-lg leading-relaxed text-slate-400 opacity-0 [animation-delay:160ms]"
+      style="animation-fill-mode: forwards;"
+    >
+      {profile.about}
+    </p>
+    <div
+      class="animate-fade-in mt-10 flex flex-wrap gap-3 opacity-0 [animation-delay:240ms]"
+      style="animation-fill-mode: forwards;"
+    >
+      <a
+        href="#projects"
+        class="inline-flex items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-surface transition hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+      >
+        Lihat proyek
+      </a>
+      <a
+        href="#contact"
+        class="inline-flex items-center justify-center rounded-lg border border-surface-border bg-surface-raised px-5 py-2.5 text-sm font-medium text-slate-200 transition hover:border-accent/50 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+      >
+        Hubungi saya
+      </a>
+    </div>
+  </div>
+</section>
