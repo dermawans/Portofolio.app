@@ -6,55 +6,103 @@ import { profile } from '../data/profile';
   id="hero"
   class="relative overflow-hidden border-b border-surface-border/60"
 >
-  <div class="relative mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
-    <p
-      class="animate-fade-in mb-5 inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface-raised/60 px-3 py-1 text-xs font-medium uppercase tracking-widest text-accent opacity-0 [animation-delay:0ms]"
-      style="animation-fill-mode: forwards;"
-    >
-      <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent"></span>
-      Halo, saya {profile.name}
-    </p>
-    <h1
-      class="animate-fade-in max-w-3xl text-4xl font-bold tracking-tight text-white opacity-0 [animation-delay:80ms] sm:text-6xl"
-      style="animation-fill-mode: forwards;"
-    >
-      <span class="bg-gradient-to-br from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
-        {profile.headline}
-      </span>
-    </h1>
-    <p
-      class="animate-fade-in mt-6 max-w-2xl text-lg leading-relaxed text-slate-300/90 opacity-0 [animation-delay:160ms] sm:text-xl"
-      style="animation-fill-mode: forwards;"
-    >
-      {profile.about}
-    </p>
-    <div
-      class="animate-fade-in mt-10 flex flex-wrap gap-3 opacity-0 [animation-delay:240ms]"
-      style="animation-fill-mode: forwards;"
-    >
-      <a
-        href="#projects"
-        class="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-surface transition hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
-      >
-        <span class="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.35),transparent_55%)]"></span>
-        Lihat proyek
-      </a>
-      <a
-        href="#contact"
-        class="inline-flex items-center justify-center rounded-lg border border-surface-border bg-surface-raised/60 px-5 py-2.5 text-sm font-medium text-slate-200 transition hover:border-accent/50 hover:bg-surface-raised hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
-      >
-        Hubungi saya
-      </a>
-    </div>
-    <div
-      class="animate-fade-in mt-12 grid max-w-2xl grid-cols-2 gap-3 opacity-0 [animation-delay:320ms] sm:grid-cols-4"
-      style="animation-fill-mode: forwards;"
-    >
-      {['Fast builds', 'UI modern', 'SEO-ready', 'GitHub Pages'].map((item) => (
-        <div class="rounded-xl border border-surface-border bg-surface-raised/40 px-3 py-3 text-center text-xs text-slate-300">
-          <span class="bg-gradient-to-r from-accent to-white/70 bg-clip-text font-semibold text-transparent">{item}</span>
+  <div class="relative mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20 lg:py-24">
+    <div class="grid gap-10 lg:grid-cols-12 lg:items-center">
+      <div class="lg:col-span-7">
+        <p
+          class="animate-fade-in mb-5 inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface-raised/60 px-3 py-1 text-xs font-medium uppercase tracking-widest text-accent opacity-0 [animation-delay:0ms]"
+          style="animation-fill-mode: forwards;"
+        >
+          <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent"></span>
+          Halo, saya {profile.name}
+        </p>
+        <h1
+          class="animate-fade-in max-w-3xl text-4xl font-bold tracking-tight text-white opacity-0 [animation-delay:80ms] sm:text-6xl"
+          style="animation-fill-mode: forwards;"
+        >
+          <span
+            class="bg-gradient-to-br from-white via-slate-100 to-slate-400 bg-clip-text text-transparent"
+          >
+            {profile.headline}
+          </span>
+        </h1>
+        <p
+          class="animate-fade-in mt-6 max-w-2xl text-lg leading-relaxed text-slate-300/90 opacity-0 [animation-delay:160ms] sm:text-xl"
+          style="animation-fill-mode: forwards;"
+        >
+          {profile.about}
+        </p>
+        <div
+          class="animate-fade-in mt-10 flex flex-wrap gap-3 opacity-0 [animation-delay:240ms]"
+          style="animation-fill-mode: forwards;"
+        >
+          <a
+            href="#projects"
+            class="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-surface transition hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+          >
+            <span
+              class="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.35),transparent_55%)]"
+            ></span>
+            Lihat proyek
+          </a>
+          <a
+            href="#contact"
+            class="inline-flex items-center justify-center rounded-lg border border-surface-border bg-surface-raised/60 px-5 py-2.5 text-sm font-medium text-slate-200 transition hover:border-accent/50 hover:bg-surface-raised hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+          >
+            Hubungi saya
+          </a>
         </div>
-      ))}
+        <div
+          class="animate-fade-in mt-12 grid max-w-2xl grid-cols-2 gap-3 opacity-0 [animation-delay:320ms] sm:grid-cols-4"
+          style="animation-fill-mode: forwards;"
+        >
+          {[
+            'Produk rapi',
+            'UI modern',
+            'Optimasi',
+            'Deploy cepat',
+          ].map((item) => (
+            <div
+              class="rounded-xl border border-surface-border bg-surface-raised/40 px-3 py-3 text-center text-xs text-slate-300"
+            >
+              <span
+                class="bg-gradient-to-r from-accent to-white/70 bg-clip-text font-semibold text-transparent"
+                >{item}</span
+              >
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div
+        class="lg:col-span-5 animate-fade-in opacity-0 [animation-delay:120ms] [animation-fill-mode:forwards]"
+      >
+        <div
+          class="relative mx-auto w-full max-w-md lg:max-w-sm"
+          aria-hidden="true"
+        >
+          <div
+            class="absolute -inset-3 rounded-[2.2rem] bg-[radial-gradient(circle_at_20%_20%,rgba(34,211,238,0.35),transparent_55%)] blur-xl"
+          ></div>
+          <div class="relative rounded-[2rem] border border-surface-border bg-surface-raised/40 p-6">
+            <div class="flex items-center justify-center">
+              <img
+                src={profile.avatar}
+                alt=""
+                class="h-48 w-48 max-w-full rounded-full border border-surface-border bg-surface animate-float"
+                loading="eager"
+              />
+            </div>
+            <div class="mt-6 text-center">
+              <div class="text-xs font-medium uppercase tracking-widest text-accent">
+                {profile.initials}
+              </div>
+              <div class="mt-2 text-lg font-semibold text-white">{profile.name}</div>
+              <div class="mt-1 text-sm text-slate-400">{profile.headline}</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

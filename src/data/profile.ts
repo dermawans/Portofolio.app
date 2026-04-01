@@ -1,6 +1,8 @@
 export const profile = {
   name: 'Dermawan',
   headline: 'Pengembang perangkat lunak',
+  avatar: '/avatar.svg',
+  initials: 'D',
   about:
     'Saya fokus membangun aplikasi web yang andal dan mudah dipelihara. Portofolio ini dibuat dengan Astro dan Tailwind, di-deploy ke GitHub Pages.',
   email: 'mailto:hello@example.com',

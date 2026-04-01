@@ -23,7 +23,7 @@ const { id, title, eyebrow } = Astro.props;
     }
     <h2
       id={`${id}-heading`}
-      class="mb-8 text-2xl font-semibold tracking-tight text-white sm:text-3xl"
+      class="mb-8 text-2xl font-semibold tracking-tight text-white sm:text-3xl relative after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-16 after:bg-gradient-to-r after:from-accent after:to-transparent after:content-['']"
     >
       {title}
     </h2>
