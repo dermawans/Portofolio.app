@@ -24,11 +24,21 @@ export default {
       },
       animation: {
         'fade-in': 'fade-in 0.6s ease-out forwards',
+        float: 'float 6s ease-in-out infinite',
+        shimmer: 'shimmer 2.2s linear infinite',
       },
       keyframes: {
         'fade-in': {
           from: { opacity: '0', transform: 'translateY(8px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        shimmer: {
+          from: { backgroundPosition: '0% 50%' },
+          to: { backgroundPosition: '100% 50%' },
         },
       },
     },

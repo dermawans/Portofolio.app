@@ -31,7 +31,11 @@ const pageDescription = profile.about;
     </Section>
     <Section id="projects" title="Proyek" eyebrow="Pekerjaan terpilih">
       <div class="grid gap-6 sm:grid-cols-2">
-        {projects.map((project) => <ProjectCard project={project} />)}
+        {projects.map((project, idx) => (
+          <div class={idx % 2 === 1 ? 'sm:translate-y-6' : undefined}>
+            <ProjectCard project={project} />
+          </div>
+        ))}
       </div>
     </Section>
     <Section id="skills" title="Keahlian" eyebrow="Teknologi & alat">

@@ -6,31 +6,24 @@ import { profile } from '../data/profile';
   id="hero"
   class="relative overflow-hidden border-b border-surface-border/60"
 >
-  <div
-    class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-accent/10 blur-3xl"
-    aria-hidden="true"
-  >
-  </div>
-  <div
-    class="pointer-events-none absolute -bottom-32 -left-16 h-64 w-64 rounded-full bg-cyan-900/20 blur-3xl"
-    aria-hidden="true"
-  >
-  </div>
   <div class="relative mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
     <p
-      class="animate-fade-in mb-4 inline-block rounded-full border border-surface-border bg-surface-raised/80 px-3 py-1 text-xs font-medium uppercase tracking-widest text-accent opacity-0 [animation-delay:0ms]"
+      class="animate-fade-in mb-5 inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface-raised/60 px-3 py-1 text-xs font-medium uppercase tracking-widest text-accent opacity-0 [animation-delay:0ms]"
       style="animation-fill-mode: forwards;"
     >
+      <span class="inline-block h-1.5 w-1.5 rounded-full bg-accent"></span>
       Halo, saya {profile.name}
     </p>
     <h1
-      class="animate-fade-in max-w-2xl text-4xl font-bold tracking-tight text-white opacity-0 [animation-delay:80ms] sm:text-5xl"
+      class="animate-fade-in max-w-3xl text-4xl font-bold tracking-tight text-white opacity-0 [animation-delay:80ms] sm:text-6xl"
       style="animation-fill-mode: forwards;"
     >
-      {profile.headline}
+      <span class="bg-gradient-to-br from-white via-slate-100 to-slate-400 bg-clip-text text-transparent">
+        {profile.headline}
+      </span>
     </h1>
     <p
-      class="animate-fade-in mt-6 max-w-xl text-lg leading-relaxed text-slate-400 opacity-0 [animation-delay:160ms]"
+      class="animate-fade-in mt-6 max-w-2xl text-lg leading-relaxed text-slate-300/90 opacity-0 [animation-delay:160ms] sm:text-xl"
       style="animation-fill-mode: forwards;"
     >
       {profile.about}
@@ -41,16 +34,27 @@ import { profile } from '../data/profile';
     >
       <a
         href="#projects"
-        class="inline-flex items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-surface transition hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+        class="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-surface transition hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
       >
+        <span class="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.35),transparent_55%)]"></span>
         Lihat proyek
       </a>
       <a
         href="#contact"
-        class="inline-flex items-center justify-center rounded-lg border border-surface-border bg-surface-raised px-5 py-2.5 text-sm font-medium text-slate-200 transition hover:border-accent/50 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
+        class="inline-flex items-center justify-center rounded-lg border border-surface-border bg-surface-raised/60 px-5 py-2.5 text-sm font-medium text-slate-200 transition hover:border-accent/50 hover:bg-surface-raised hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface"
       >
         Hubungi saya
       </a>
+    </div>
+    <div
+      class="animate-fade-in mt-12 grid max-w-2xl grid-cols-2 gap-3 opacity-0 [animation-delay:320ms] sm:grid-cols-4"
+      style="animation-fill-mode: forwards;"
+    >
+      {['Fast builds', 'UI modern', 'SEO-ready', 'GitHub Pages'].map((item) => (
+        <div class="rounded-xl border border-surface-border bg-surface-raised/40 px-3 py-3 text-center text-xs text-slate-300">
+          <span class="bg-gradient-to-r from-accent to-white/70 bg-clip-text font-semibold text-transparent">{item}</span>
+        </div>
+      ))}
     </div>
   </div>
 </section>
