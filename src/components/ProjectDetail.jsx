@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams, useNavigate } from "react-router-dom";
+import { supabase } from "../supabase";
 import {
   ArrowLeft,
   ExternalLink,
@@ -126,21 +127,39 @@ const ProjectDetails = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    const storedProjects = JSON.parse(localStorage.getItem("projects")) || [];
-    // Cari project berdasarkan slug yang di-generate dari Title
-    const selectedProject = storedProjects.find(
-      (p) => toSlug(p.Title) === slug,
-    );
-
-    if (selectedProject) {
-      const enhancedProject = {
-        ...selectedProject,
-        Features: selectedProject.Features || [],
-        TechStack: selectedProject.TechStack || [],
-        Github: selectedProject.Github || "https://github.com/dermawans",
-      };
-      setProject(enhancedProject);
-    }
+  
+    const fetchProject = async () => {
+      const { data, error } = await supabase
+        .from("projects")
+        .select("*");
+  
+      if (error) {
+        console.error(error);
+        return;
+      }
+  
+      // mapping snake_case → camelCase (biar cocok sama UI kamu)
+      const mapped = data.map((p) => ({
+        id: p.id,
+        Title: p.title,
+        Description: p.description,
+        Img: p.img,
+        TechStack: p.tech_stack || [],
+        Features: p.features || [],
+        Link: p.link,
+        Github: p.github,
+      }));
+  
+      const selectedProject = mapped.find(
+        (p) => toSlug(p.Title) === slug
+      );
+  
+      if (selectedProject) {
+        setProject(selectedProject);
+      }
+    };
+  
+    fetchProject();
   }, [slug]);
 
   if (!project) {
@@ -255,7 +274,7 @@ const ProjectDetails = () => {
                   >
                     <div className="absolute inset-0 translate-y-[100%] bg-gradient-to-r from-blue-600/10 to-purple-600/10 transition-transform duration-300 group-hover:translate-y-[0%]" />
                     <ExternalLink className="relative w-4 h-4 md:w-5 md:h-5 group-hover:rotate-12 transition-transform" />
-                    <span className="relative font-medium">Live Demo</span>
+                    <span className="relative font-medium">Live</span>
                   </a>
 
                   <a

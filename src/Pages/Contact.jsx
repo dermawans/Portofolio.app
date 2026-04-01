@@ -31,6 +31,11 @@ const ContactPage = () => {
   };
 
   const handleSubmit = async (e) => {
+
+    const isValidEmail = (email) => {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
+
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -45,38 +50,52 @@ const ContactPage = () => {
 
     try {
       // Ganti dengan email Anda di FormSubmit
-      const formSubmitUrl = 'https://formsubmit.co/ekizulfarrachman@gmail.com';
+      const formSubmitUrl = 'https://api.web3forms.com/submit';
       
       // Siapkan data form untuk FormSubmit
-      const submitData = new FormData();
-      submitData.append('name', formData.name);
-      submitData.append('email', formData.email);
-      submitData.append('message', formData.message);
-      submitData.append('_subject', 'Pesan Baru dari Website Portfolio');
-      submitData.append('_captcha', 'false'); // Nonaktifkan captcha
-      submitData.append('_template', 'table'); // Format email sebagai tabel
+      const submitData = {
+        access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      };
 
-      await axios.post(formSubmitUrl, submitData, {
+      if (!isValidEmail(formData.email)) {
+        Swal.fire({
+          title: 'Email tidak valid!',
+          text: 'Masukkan email yang benar ya',
+          icon: 'warning',
+          confirmButtonColor: '#6366f1'
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      const { data } = await axios.post(formSubmitUrl, submitData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          'Content-Type': 'application/json',
         },
       });
 
+      if (data.success) {
+        Swal.fire({
+          title: 'Berhasil!',
+          text: 'Pesan Anda telah berhasil terkirim!',
+          icon: 'success',
+          confirmButtonColor: '#6366f1',
+          timer: 2000,
+          timerProgressBar: true
+        });
+      
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Gagal kirim");
+      }
      
-      Swal.fire({
-        title: 'Berhasil!',
-        text: 'Pesan Anda telah berhasil terkirim!',
-        icon: 'success',
-        confirmButtonColor: '#6366f1',
-        timer: 2000,
-        timerProgressBar: true
-      });
-
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
-      });
 
     } catch (error) {
       if (error.request && error.request.status === 0) {
@@ -194,6 +213,7 @@ const ContactPage = () => {
                   disabled={isSubmitting}
                   className="w-full p-4 pl-12 bg-white/10 rounded-xl border border-white/20 placeholder-gray-500 text-white focus:outline-none focus:ring-2 focus:ring-[#6366f1]/30 transition-all duration-300 hover:border-[#6366f1]/30 disabled:opacity-50"
                   required
+                  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
                 />
               </div>
               <div
