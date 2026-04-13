@@ -1,4 +1,4 @@
-# Dermawan Suprihatin - Personal Portfolio V5
+# Dermawan Suprihatin - Personal Portofolio V5
 
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
@@ -7,7 +7,7 @@
 
 > **Passionate IT Professional Driving Innovation and Excellence | Leveraging Technology to Shape a Smarter Future.**
 
-Welcome to my personal portfolio repository. This project is a comprehensive showcase of my work, skills, certifications, and professional journey, built with a focus on modern web aesthetics and interactive user experiences.
+Welcome to my personal portofolio repository. This project is a comprehensive showcase of my work, skills, certifications, and professional journey, built with a focus on modern web aesthetics and interactive user experiences.
 
 ---
 
