@@ -88,8 +88,14 @@ export default function Certificates() {
 
   const deleteCert = async (id) => {
     if (!confirm('Delete this certificate?')) return
-    await supabase.from('certificates').delete().eq('id', id)
-    fetchCerts()
+    try {
+      const { error } = await supabase.from('certificates').delete().eq('id', id)
+      if (error) throw error
+      fetchCerts()
+    } catch (error) {
+      console.error('Error deleting certificate:', error)
+      alert('Failed to delete certificate: ' + error.message)
+    }
   }
 
   return (
